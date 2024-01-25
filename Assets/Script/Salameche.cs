@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Salameche : Pokemon
 {
+    private PokemonChange pokemonChange;
     public int damage;
     public Salameche() : base("Salamèche", 100, 60, 40, 60, "Feu") { }
 
@@ -73,6 +74,9 @@ public class Salameche : Pokemon
 
     public override void Death()
     {
+        PokemonChange changepokemon = FindObjectOfType<PokemonChange>();
+        pokemonChange = changepokemon;
         Debug.Log($"{pokemonName} est K.O");
+        pokemonChange.ChangePokemon();
     }
 }

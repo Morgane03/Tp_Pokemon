@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Pikatchu : Pokemon
 {
+    private PokemonChange pokemonChange;
     public Pikatchu() : base("Pikachu", 80, 80, 60, 40, "Electrik") { }
 
     public override void Charge(Pokemon _pokemonEnnemy)
@@ -65,7 +66,7 @@ public class Pikatchu : Pokemon
 
         if (hp <= 0)
         {
-            Debug.Log($"{pokemonName} PV : 0");
+            isAlive = false;
             Death();
         }
         else
@@ -75,7 +76,9 @@ public class Pikatchu : Pokemon
     }
     public override void Death()
     {
+        PokemonChange changepokemon = FindObjectOfType<PokemonChange>();
+        pokemonChange = changepokemon;
         Debug.Log($"{pokemonName} est K.O");
-        isAlive = false;
+        pokemonChange.ChangePokemon();
     }
 }

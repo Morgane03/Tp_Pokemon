@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Bulbizarre : Pokemon
 {
+    private PokemonChange pokemonChange;
     public Bulbizarre() : base("Bulbizarre", 120, 40, 60, 30, "Plante") { }
 
     public override void AttackSpePokemon(Pokemon _target)
@@ -61,6 +62,9 @@ public class Bulbizarre : Pokemon
 
     public override void Death()
     {
-        Debug.Log($"{pokemonName} est mort");
+        PokemonChange changepokemon = FindObjectOfType<PokemonChange>();
+        pokemonChange = changepokemon;
+        Debug.Log($"{pokemonName} est K.O");
+        pokemonChange.ChangePokemon();
     }
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Carapuce : Pokemon
 {
+    private PokemonChange pokemonChange;
     public Carapuce() : base("Carapuce", 120, 40, 60, 30, "Eau") { }
 
     public override void AttackSpePokemon(Pokemon _target)
@@ -34,7 +35,7 @@ public class Carapuce : Pokemon
     {
         if (isAlive || _target.IsAlive)
         {
-            int _damage= attack;
+            int _damage = attack;
             Debug.Log($"{pokemonName} utilise l'attaque Charge");
             switch (_target.Type)
             {
@@ -72,6 +73,9 @@ public class Carapuce : Pokemon
 
     public override void Death()
     {
+        PokemonChange changepokemon = FindObjectOfType<PokemonChange>();
+        pokemonChange = changepokemon;
         Debug.Log($"{pokemonName} est K.O");
+        pokemonChange.ChangePokemon();
     }
 }

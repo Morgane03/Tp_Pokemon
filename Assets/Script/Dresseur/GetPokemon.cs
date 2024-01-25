@@ -28,9 +28,26 @@ public class GetPokemon : MonoBehaviour
         Debug.Log($"Sasha possède les Pokémon {sashaPokemons[0].PokemonName} et {sashaPokemons[1].PokemonName}");
         Debug.Log($"Ondine possède les Pokémon {ondinePokemons[0].PokemonName} et {ondinePokemons[1].PokemonName}");
 
+        StartBattle();
+    }
+
+    public void StartBattle()
+    {
         sashaPokemon = sashaPokemons[0];
         ondinePokemon = ondinePokemons[0];
         Debug.Log($"Sasha : {sashaPokemon.PokemonName} je te choisis !");
+        Debug.Log($"Ondine : {ondinePokemon.PokemonName} je te choisis !");
+    }
+
+    public void SachaChange()
+    {
+        sashaPokemon = sashaPokemons[0];
+        Debug.Log($"Sasha : {sashaPokemon.PokemonName} je te choisis !");
+    }
+
+    public void OndineChange()
+    {
+        ondinePokemon = ondinePokemons[0];
         Debug.Log($"Ondine : {ondinePokemon.PokemonName} je te choisis !");
     }
 
