@@ -13,7 +13,7 @@ public class GetPokemon : MonoBehaviour
     public Pokemon[] SashaPokemons { get { return sashaPokemons; } }
     public Pokemon[] OndinePokemons { get { return ondinePokemons; }}
 
-    public void StartGame()
+    public void Start()
     {
         terrain.GiveField();
 

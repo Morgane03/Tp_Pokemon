@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class Pikatchu : Pokemon
+public class Pikatchu
+    : Pokemon
 {
     private PokemonChange pokemonChange;
     public Pikatchu() : base("Pikachu", 80, 80, 60, 40, "Electrik") { }

@@ -5,16 +5,12 @@ public class Pierre : MonoBehaviour
     private Pokemon[] sashaPokemons;
     private Pokemon[] ondinePokemons;
 
-    private void Start()
+    public void SoinTotalSacha(Pokemon pokemon)
     {
         GetPokemon getPokemonScript = FindObjectOfType<GetPokemon>();
         sashaPokemons = getPokemonScript.SashaPokemons;
         ondinePokemons = getPokemonScript.OndinePokemons;
-    }
-
-    public void SoinTotalSacha(Pokemon pokemon)
-    {
-        if(pokemon.isAlive && sashaPokemons[0])
+        if (pokemon.isAlive && sashaPokemons[0])
         {
             sashaPokemons[0].hp = sashaPokemons[0].maxhp;
             Debug.Log($"Pierre soigne completement {pokemon.name} de Sasha");
@@ -28,6 +24,9 @@ public class Pierre : MonoBehaviour
 
     public void SoinTotalOndine(Pokemon pokemon)
     {
+        GetPokemon getPokemonScript = FindObjectOfType<GetPokemon>();
+        sashaPokemons = getPokemonScript.SashaPokemons;
+        ondinePokemons = getPokemonScript.OndinePokemons;
         if (pokemon.isAlive && ondinePokemons[0])
         {
             ondinePokemons[0].hp = ondinePokemons[0].maxhp;
@@ -42,16 +41,16 @@ public class Pierre : MonoBehaviour
 
     public void Cuisiner()
     {
+        GetPokemon getPokemonScript = FindObjectOfType<GetPokemon>();
+        sashaPokemons = getPokemonScript.SashaPokemons;
+        ondinePokemons = getPokemonScript.OndinePokemons;
         Debug.Log($"Pierre cuisine pour guérir tous les Pokemons");
         foreach (Pokemon pokemon in sashaPokemons)
         {
             if (pokemon.isAlive)
             {
-                if (pokemon.isAlive)
-                {
                     HealPokemon(pokemon, 20);
                     Debug.Log($"Sacha : {pokemon.pokemonName} : PV = {pokemon.hp}");
-                }
             }
 
         }
