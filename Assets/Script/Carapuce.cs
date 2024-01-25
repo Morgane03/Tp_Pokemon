@@ -10,20 +10,21 @@ public class Carapuce : Pokemon
         if (isAlive || _target.IsAlive)
         {
             int _damage = attack;
+            int _res = _target.Defense;
             Debug.Log($"{pokemonName} utilise l'attaque Pistolet à eau");
             switch (_target.Type)
             {
                 case "Feu":
-                    _damage = (int)(attack * 2f);
+                    _damage = (int)(attack * 2f * (1 / 3 * _res));
                     break;
                 case "Eau":
-                    _damage = (int)(attack * 0.5f);
+                    _damage = (int)(attack * 0.5f * (1 / 3 * _res));
                     break;
                 case "Plante":
-                    _damage = (int)(attack * 0.5f);
+                    _damage = (int)(attack * 0.5f * (1 / 3 * _res));
                     break;
                 default:
-                    _damage = (int)(attack * 0.9f);
+                    _damage = (int)(attack * 0.9f * (1 / 3 * _res));
                     break;
             }
             Debug.Log($"{_target.PokemonName} perd {_damage} PV");
@@ -36,20 +37,21 @@ public class Carapuce : Pokemon
         if (isAlive || _target.IsAlive)
         {
             int _damage = attack;
+            int _res = _target.Defense;
             Debug.Log($"{pokemonName} utilise l'attaque Charge");
             switch (_target.Type)
             {
                 case "Roche":
-                    _damage = (int)(attack * 0.1f);
+                    _damage = (int)(attack * 0.1f * (1 / 3 * _res));
                     break;
                 case "Acier":
-                    _damage = (int)(attack * 0.1f);
+                    _damage = (int)(attack * 0.1f * (1 / 3 * _res));
                     break;
                 case "Spectre":
                     _damage = 0;
                     break;
                 default:
-                    _damage = (int)(attack * 0.2f);
+                    _damage = (int)(attack * 0.2f * (1 / 3 * _res));
                     break;
             }
             Debug.Log($"{_target.PokemonName} perd {_damage} PV");

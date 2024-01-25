@@ -4,8 +4,8 @@ public class GetPokemon : MonoBehaviour
 {
     private Pokemon sashaPokemon;
     private Pokemon ondinePokemon;
-    private Pokemon[] sashaPokemons = { new Salameche(), new Bulbizarre(), new Carapuce(), new Pikatchu() };
-    private Pokemon[] ondinePokemons = { new Salameche(), new Bulbizarre(), new Carapuce(), new Pikatchu() };
+    private Pokemon[] sashaPokemons = { new Salameche(), new Bulbizarre(), new Carapuce(), new Pikatchu(), new Zorua() };
+    private Pokemon[] ondinePokemons = { new Salameche(), new Bulbizarre(), new Carapuce(), new Pikatchu(), new Zorua() };
 
     [SerializeField]
     private Terrain terrain;

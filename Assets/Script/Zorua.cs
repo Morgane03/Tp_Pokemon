@@ -1,24 +1,33 @@
 using UnityEngine;
 
-public class Bulbizarre : Pokemon
+public class Zorua : Pokemon
 {
     private PokemonChange pokemonChange;
-    public Bulbizarre() : base("Bulbizarre", 120, 40, 60, 30, "Plante") { }
+    public Zorua() : base("Zorua", 110, 75, 40, 65, "Tenebre") { }
 
     public override void AttackSpePokemon(Pokemon _target)
     {
-        if (IsAlive || _target.IsAlive)
+        if (isAlive || _target.IsAlive)
         {
-            Debug.Log($"{pokemonName} utilise soin");
-            hp += 30;
-            if (hp > maxhp)
+            int _damage = attack;
+            int _res = _target.Defense;
+            Debug.Log($"{pokemonName} utilise l'attaque Étourdissement nocturne");
+            switch (_target.Type)
             {
-                hp = maxhp;
+                case "Tenebre":
+                    _damage = (int)(attack * 0.5f * (1/3 * _res));
+                    break;
+                case "Psy":
+                    _damage = (int)(attack * 2f * (1 / 3 * _res));
+                    break;
+                default:
+                    _damage = (int)(attack * 1f * (1 / 3 * _res));
+                    break;
             }
-            Debug.Log($"{this.PokemonName} se soigne");
-            Debug.Log($"{pokemonName} : PV = {hp}");
+            Debug.Log($"{_target.PokemonName} perd {_damage} PV");
+            _target.TakeDamage(_damage);
         }
-    }
+    }   
 
     public override void Charge(Pokemon _target)
     {
@@ -46,7 +55,6 @@ public class Bulbizarre : Pokemon
             _target.TakeDamage(_damage);
         }
     }
-
     public override void TakeDamage(int _damage)
     {
         hp -= _damage;
